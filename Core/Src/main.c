@@ -101,7 +101,6 @@ int main(void)
   /* USER CODE BEGIN 2 */
 
   uartRxInit(&huart2);
-  uartTxInit(&huart2);
 
   sysContextInit();
 

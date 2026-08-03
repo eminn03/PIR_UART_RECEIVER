@@ -21,7 +21,7 @@ void uartRxInit(UART_HandleTypeDef* huart2){
     dataReady = false;
     rxBuffIndex = 0;
  
-    HAL_UART_ReceiverTimeout_Config(p_huart2, 300000);
+    HAL_UART_ReceiverTimeout_Config(p_huart2, 30000);
     HAL_UART_EnableReceiverTimeout(p_huart2);
     __HAL_UART_ENABLE_IT(p_huart2, UART_IT_RTO);   
 

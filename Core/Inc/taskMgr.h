@@ -1,10 +1,10 @@
 #ifndef TASK_MGR_H
 #define TASK_MGR_H
 
-#include "pqueue.h"
+#include "queue.h"
 
 
-void taskMgrInit(PriorityQueue_t* taskQueue);
+void taskMgrInit(Queue_t* taskQueue);
 void taskMgr();
 
 

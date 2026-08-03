@@ -4,23 +4,22 @@
 #include "../Inc/restartHandler.h"
 
 
-static PriorityQueue_t* p_taskQueue;
+static Queue_t* p_taskQueue;
 static parsedData_t activeTask;
 
 
-void taskMgrInit(PriorityQueue_t *taskQueue){
+void taskMgrInit(Queue_t *taskQueue){
 
     p_taskQueue = taskQueue;
 
     activeTask.cmd = CMD_NO_TASK;
-    activeTask.priority = 0x00;
 }
 
 void taskMgr(){
 
-    if(!pqueIsEmpty(p_taskQueue)){
+    if(!queIsEmpty(p_taskQueue)){
 
-        if(pquePeek(p_taskQueue).priority > activeTask.priority || activeTask.cmd == CMD_NO_TASK){
+        if(quePeek(p_taskQueue).priority > activeTask.priority || activeTask.cmd == CMD_NO_TASK){
 
             ledReset();
             activeTask = pqueDequeue(p_taskQueue);

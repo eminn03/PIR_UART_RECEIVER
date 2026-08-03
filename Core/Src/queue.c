@@ -1,14 +1,14 @@
 #include "../Inc/queue.h"
 
 
-static int8_t queSlide(rawData_t* arr, uint8_t end);
+static int8_t queSlide(parsedData_t* arr, uint8_t end);
 
 
 void queInit(Queue_t* qu){
     qu->index = 0;
 }
 
-int8_t queEnqueue(Queue_t* qu, rawData_t* data){
+int8_t queEnqueue(Queue_t* qu, parsedData_t* data){
 
 	if(qu->index >= MAX_QUEUE_SIZE)
 		return -1;
@@ -20,19 +20,19 @@ int8_t queEnqueue(Queue_t* qu, rawData_t* data){
     return 0;
 }
 
-rawData_t queDequeue(Queue_t* qu){
+parsedData_t queDequeue(Queue_t* qu){
 
     if(queIsEmpty(qu))
-        return (rawData_t){0, 0};
+        return (parsedData_t){0, 0};
 
     qu->index--;
     return qu->queueArr[qu->index];
 }
 
-rawData_t quePeek(Queue_t* qu){
+parsedData_t quePeek(Queue_t* qu){
 
 	if(queIsEmpty(qu))
-		return (rawData_t){0, 0};
+		return (parsedData_t){0, 0};
 
 	return qu->queueArr[qu->index - 1];
 }
@@ -42,7 +42,7 @@ bool queIsEmpty(Queue_t* qu){
 }
 
 
-static int8_t queSlide(rawData_t* arr, uint8_t end){
+static int8_t queSlide(parsedData_t* arr, uint8_t end){
 
     if(end > MAX_QUEUE_SIZE - 2)
         return -1;

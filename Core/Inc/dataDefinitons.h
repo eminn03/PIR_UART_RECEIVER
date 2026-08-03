@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 
-#define BUFFER_SIZE 9
+#define BUFFER_SIZE 7
 
 #define DATA_STRT 0x02
 #define DATA_END 0x03
@@ -13,9 +13,7 @@
 typedef enum{
 
     DATA_IDX_STRT = 0,
-    DATA_IDX_LEN = 1,
     DATA_IDX_DEV_ADDR = 2,
-    DATA_IDX_PRIO = 3,
     DATA_IDX_CMD_MS = 4,
     DATA_IDX_CMD_LS = 5,
     DATA_IDX_CRC_MS = 6,
@@ -39,7 +37,6 @@ typedef enum{
 
 
 typedef struct{
-    uint8_t priority;
     uint16_t cmd;
 } parsedData_t;
 

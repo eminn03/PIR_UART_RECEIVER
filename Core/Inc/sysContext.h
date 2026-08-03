@@ -1,11 +1,11 @@
 #ifndef SYS_CONTEXT_H
 #define SYS_CONTEXT_H
 
-#include "pqueue.h"
+#include "queue.h"
 
 
 void sysContextInit();
-PriorityQueue_t* sysContextGetTaskQueue();
+Queue_t* sysContextGetTaskQueue();
 bool sysContextGetIsTxBusy();
 void sysContextSetIsTxBusy(bool isBusy);
 

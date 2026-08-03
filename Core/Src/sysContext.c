@@ -1,14 +1,14 @@
 #include "../Inc/sysContext.h"
 
 
-static PriorityQueue_t taskQueue;
+static Queue_t taskQueue;
 
 static bool isTxBusy = false;
 
 
 void sysContextInit(){
 
-    pqueInit(&taskQueue);
+    queInit(&taskQueue);
 }
 
 
