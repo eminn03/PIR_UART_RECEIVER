@@ -1,10 +1,10 @@
 #ifndef TASK_MGR_H
 #define TASK_MGR_H
 
-#include "queue.h"
+#include "ringBuffer.h"
 
 
-void taskMgrInit(Queue_t* taskQueue);
+void taskMgrInit(RingBuffer_t* rBuff);
 void taskMgr();
 
 

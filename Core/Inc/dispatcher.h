@@ -1,10 +1,10 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
-#include "queue.h"
+#include "ringBuffer.h"
 
 
-void dispatcherInit(Queue_t* taskQueue);
+void dispatcherInit(RingBuffer_t* rBuff);
 void dispatcher();
 
 

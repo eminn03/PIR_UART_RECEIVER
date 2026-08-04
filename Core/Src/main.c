@@ -22,7 +22,6 @@
 #include "../Inc/dispatcher.h"
 #include "../Inc/taskMgr.h"
 #include "../Inc/uartRx.h"
-#include "../Inc/uartTx.h"
 #include "../Inc/sysContext.h"
 
 /* Private includes ----------------------------------------------------------*/
@@ -104,8 +103,8 @@ int main(void)
 
   sysContextInit();
 
-  dispatcherInit(sysContextGetTaskQueue());
-  taskMgrInit(sysContextGetTaskQueue());
+  dispatcherInit(sysContextGetRingBuffer());
+  taskMgrInit(sysContextGetRingBuffer());
   
 
   /* USER CODE END 2 */

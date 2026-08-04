@@ -46,19 +46,17 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/dispatcher.c
     Core/Src/taskMgr.c
     Core/Src/uartRx.c
-    Core/Src/uartTx.c
     Core/Src/main.c
     Core/Src/stm32g0xx_it.c
     Core/Src/stm32g0xx_hal_msp.c
     Core/Src/sysmem.c
     Core/Src/syscalls.c
     Core/Src/dataCheck.c
-    Core/Src/pqueue.c
     Core/Src/queue.c
     Core/Src/dataProc.c
     Core/Src/sysContext.c
     Core/Src/ledHandler.c
-    Core/Src/restartHandler.c
+    Core/Src/ringBuffer.c
     # Add user sources here
 )
 

@@ -1,28 +1,16 @@
 #include "../Inc/sysContext.h"
 
 
-static Queue_t taskQueue;
-
-static bool isTxBusy = false;
+static RingBuffer_t ringBuffer;
 
 
 void sysContextInit(){
 
-    queInit(&taskQueue);
+    ringBufferInit(&ringBuffer);
 }
 
+RingBuffer_t* sysContextGetRingBuffer(){
 
-PriorityQueue_t* sysContextGetTaskQueue(){
-
-    return &taskQueue;
+    return &ringBuffer;
 }
 
-bool sysContextGetIsTxBusy(){
-
-    return isTxBusy;
-}
-
-void sysContextSetIsTxBusy(bool isBusy){
-
-    isTxBusy = isBusy;
-}

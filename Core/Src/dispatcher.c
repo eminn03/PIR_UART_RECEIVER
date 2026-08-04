@@ -7,12 +7,12 @@
 
 static rawData_t text;
 static parsedData_t data;
-static Queue_t* p_taskQueue;
+static RingBuffer_t* p_rBuff;
 
 
-void dispatcherInit(Queue_t* taskQueue){
+void dispatcherInit(RingBuffer_t* rBuff){
 
-    p_taskQueue = taskQueue;
+    p_rBuff = rBuff;
 }
 
 
@@ -29,8 +29,7 @@ void dispatcher(){
 
         data = dataProcParseData(&text);
         
-        queEnqueue(p_taskQueue, &data);
+        ringBufferAppend(p_rBuff, data);
 
     }
-
 }

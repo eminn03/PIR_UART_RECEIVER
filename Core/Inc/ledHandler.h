@@ -5,10 +5,8 @@
 #include <stdbool.h>
 
 
-bool ledON();
-void ledOFF();
-bool ledBlink(uint8_t count, uint16_t delay);
-void ledReset();
+void ledON();
+void ledBlink(uint16_t delay);
 
 
 #endif

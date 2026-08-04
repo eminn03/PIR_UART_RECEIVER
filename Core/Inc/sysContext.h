@@ -1,13 +1,11 @@
 #ifndef SYS_CONTEXT_H
 #define SYS_CONTEXT_H
 
-#include "queue.h"
+#include "ringBuffer.h"
 
 
 void sysContextInit();
-Queue_t* sysContextGetTaskQueue();
-bool sysContextGetIsTxBusy();
-void sysContextSetIsTxBusy(bool isBusy);
+RingBuffer_t* sysContextGetRingBuffer();
 
 
 #endif
