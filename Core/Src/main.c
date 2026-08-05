@@ -18,14 +18,14 @@
 /* USER CODE END Header */
 /* Includes ------------------------------------------------------------------*/
 #include "main.h"
-#include "stm32g0xx_hal_gpio.h"
-#include "../Inc/dispatcher.h"
-#include "../Inc/taskMgr.h"
-#include "../Inc/uartRx.h"
-#include "../Inc/sysContext.h"
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
+
+#include "../Inc/dispatcher.h"
+#include "../Inc/uartRx.h"
+#include "../Inc/sysContext.h"
+#include "../Inc/taskMgr.h"
 
 /* USER CODE END Includes */
 
