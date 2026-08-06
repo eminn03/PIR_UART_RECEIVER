@@ -24,8 +24,10 @@ void dispatcher(){
 
         text = uartRxGetRawData();
 
+        /*
         if(!checkData(&text))
            return;
+        */
 
         data = dataProcParseData(&text);
         
