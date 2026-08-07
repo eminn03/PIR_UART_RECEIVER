@@ -6,7 +6,6 @@
 
 
 static rawData_t text;
-static parsedData_t data;
 static RingBuffer_t* p_rBuff;
 
 
@@ -24,14 +23,10 @@ void dispatcher(){
 
         text = uartRxGetRawData();
 
-        /*
         if(!checkData(&text))
            return;
-        */
 
-        data = dataProcParseData(&text);
-        
-        ringBufferAppend(p_rBuff, data);
+        ringBufferAppend(p_rBuff, dataProcParseData(&text));
 
     }
 }

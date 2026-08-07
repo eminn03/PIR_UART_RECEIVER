@@ -1,6 +1,5 @@
 #include "../Inc/uartRx.h"
-#include "stm32g070xx.h"
-#include "stm32g0xx_hal.h"
+#include <stdint.h>
 
 
 static UART_HandleTypeDef* p_huart2;

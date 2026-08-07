@@ -6,6 +6,7 @@
 
 
 void ledON();
+void ledOFF();
 void ledBlink(uint16_t delay);
 
 

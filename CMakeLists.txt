@@ -57,6 +57,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/sysContext.c
     Core/Src/ledHandler.c
     Core/Src/ringBuffer.c
+    Core/Src/statistics.c
     # Add user sources here
 )
 

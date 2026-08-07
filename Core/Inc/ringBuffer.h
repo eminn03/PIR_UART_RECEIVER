@@ -5,7 +5,7 @@
 #include <stdbool.h>
 
 
-#define RING_BUFFER_SIZE 16
+#define RING_BUFFER_SIZE 32
 
 
 typedef struct{
@@ -24,6 +24,9 @@ uint16_t ringBufferPop(RingBuffer_t* rBuff);
 uint16_t ringBufferPeek(RingBuffer_t* rBuff);
 bool ringBufferIsEmpty(RingBuffer_t* rBuff);
 bool ringBufferIsFull(RingBuffer_t* rBuff);
+uint16_t* ringBufferGetData(RingBuffer_t* rBuff);
+uint8_t ringBufferGetCount(RingBuffer_t* rBuff);
+
 
 
 #endif

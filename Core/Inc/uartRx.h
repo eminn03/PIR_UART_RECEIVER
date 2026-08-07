@@ -2,7 +2,6 @@
 #define UART_RX_H
 
 #include <stdbool.h>
-#include <stdint.h>
 #include "stm32g0xx_hal.h"
 #include "../Inc/dataDefinitons.h"
 

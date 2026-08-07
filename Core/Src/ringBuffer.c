@@ -60,3 +60,12 @@ bool ringBufferIsFull(RingBuffer_t* rBuff){
     return rBuff->count == RING_BUFFER_SIZE;
 }
 
+uint16_t* ringBufferGetData(RingBuffer_t* rBuff){
+
+    return rBuff->data;
+}
+
+uint8_t ringBufferGetCount(RingBuffer_t* rBuff){
+
+    return rBuff->count;
+}

@@ -1,6 +1,7 @@
 #include "../Inc/taskMgr.h"
 #include "../Inc/dataDefinitons.h"
 #include "../Inc/ledHandler.h"
+#include "../Inc/statistics.h"
 #include "stm32g0xx_hal.h"
 
 
@@ -14,13 +15,14 @@ void taskMgrInit(RingBuffer_t *rBuff){
 
 void taskMgr(){
 
-    //ledBlink(500);
-
-    if(!ringBufferIsEmpty(p_rBuff)){
+    if(ringBufferIsFull(p_rBuff)){
         
-        uint16_t data = ringBufferPeek(p_rBuff);
+        uint16_t data = mean(ringBufferGetData(p_rBuff), ringBufferGetCount(p_rBuff), 24);
+        uint32_t diff = successiveDifference(ringBufferGetData(p_rBuff), ringBufferGetCount(p_rBuff));
 
-        if(data < 8000 )
-            HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);
+        if(diff > 0x222)
+            ledON();
+        else
+            ledOFF();
     }
 }

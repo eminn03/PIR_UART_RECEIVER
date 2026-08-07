@@ -33,6 +33,10 @@ void ledBlink(uint16_t delay){
 
 void ledON(){
 
-    HAL_GPIO_WritePin(GPIOA, GPIO_PIN_5, GPIO_PIN_RESET);
-    ledState = true;
+    GPIOA->BSRR = GPIO_PIN_5;
+}
+
+void ledOFF(){
+
+    GPIOA->BRR = GPIO_PIN_5;
 }
