@@ -1,8 +1,6 @@
 #include "../Inc/taskMgr.h"
-#include "../Inc/dataDefinitons.h"
 #include "../Inc/ledHandler.h"
 #include "../Inc/statistics.h"
-#include "stm32g0xx_hal.h"
 
 
 static DataBuffer_t* p_dataBuffer;

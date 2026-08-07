@@ -11,7 +11,7 @@ static uint8_t rxBuffIndex = 0;
 static volatile bool dataReady;
 
 
-static void uartRxAddToBuffer(uint8_t rxValue);
+static void uartRxAddToBuffer(uint8_t value);
 
 
 void uartRxInit(UART_HandleTypeDef* huart2){
@@ -66,32 +66,32 @@ void uartRxTimeoutHandler(){
 }
 
 
-static void uartRxAddToBuffer(uint8_t rxValue){
+static void uartRxAddToBuffer(uint8_t value){
 
     if(rxBuffIndex == DATA_IDX_STRT){
      
-        if(rxValue != DATA_STRT)
+        if(value != DATA_STRT)
             return;
         
-        rxData.value[rxBuffIndex] = rxValue;
+        rxData.value[rxBuffIndex] = value;
         rxBuffIndex++;
     }
     else if(rxBuffIndex == DATA_IDX_LEN){
         
-        if(rxValue < 3 || rxValue > BUFFER_SIZE){
+        if(value < 3 || value > BUFFER_SIZE){
 
             rxBuffIndex = 0;
             return;
         }
-        rxData.len = rxValue;
-        rxData.value[rxBuffIndex] = rxValue;
+        rxData.len = value;
+        rxData.value[rxBuffIndex] = value;
         rxBuffIndex++;
     }
     else if(rxBuffIndex == rxData.len - 1){
         
-        if(rxValue == DATA_END){
+        if(value == DATA_END){
             
-            rxData.value[rxBuffIndex] = rxValue;
+            rxData.value[rxBuffIndex] = value;
             dataReady = true;
         }
 
@@ -99,7 +99,7 @@ static void uartRxAddToBuffer(uint8_t rxValue){
     }
     else {
 
-        rxData.value[rxBuffIndex] = rxValue;
+        rxData.value[rxBuffIndex] = value;
         rxBuffIndex++;
     }
 }

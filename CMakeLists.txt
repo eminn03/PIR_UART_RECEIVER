@@ -36,6 +36,13 @@ add_executable(${CMAKE_PROJECT_NAME})
 # Add STM32CubeMX generated sources
 add_subdirectory(cmake/stm32cubemx)
 
+target_compile_options(${CMAKE_PROJECT_NAME} PRIVATE
+    -Wall
+    -Wextra
+    -Wshadow
+    # -Werror 
+)
+
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
