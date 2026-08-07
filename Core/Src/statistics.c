@@ -4,7 +4,7 @@
 static inline uint32_t absValue(int32_t value);
 
 
-uint16_t mean(uint16_t *data, uint16_t len, uint16_t startIndex){
+uint16_t mean(const uint16_t *data, uint16_t len, uint16_t startIndex){
 
     uint16_t result = 0;
 
@@ -17,7 +17,7 @@ uint16_t mean(uint16_t *data, uint16_t len, uint16_t startIndex){
 }
 
 
-uint32_t successiveDifference(uint16_t *data, uint16_t len){
+uint32_t successiveDifference(const uint16_t *data, uint16_t len){
 
     uint32_t result = 0;
 

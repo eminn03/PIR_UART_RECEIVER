@@ -5,20 +5,20 @@
 #include "stm32g0xx_hal.h"
 
 
-static RingBuffer_t* p_rBuff;
+static DataBuffer_t* p_dataBuffer;
 
 
-void taskMgrInit(RingBuffer_t *rBuff){
+void taskMgrInit(DataBuffer_t *dataBuffer){
 
-    p_rBuff = rBuff;
+    p_dataBuffer = dataBuffer;
 }
 
 void taskMgr(){
 
-    if(ringBufferIsFull(p_rBuff)){
-        
-        uint16_t data = mean(ringBufferGetData(p_rBuff), ringBufferGetCount(p_rBuff), 24);
-        uint32_t diff = successiveDifference(ringBufferGetData(p_rBuff), ringBufferGetCount(p_rBuff));
+    if(dataBufferIsFull(p_dataBuffer)){
+
+        uint16_t data = mean(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer), 24);
+        uint32_t diff = successiveDifference(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer));
 
         if(diff > 0x222)
             ledON();

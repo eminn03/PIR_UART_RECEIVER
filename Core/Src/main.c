@@ -103,8 +103,8 @@ int main(void)
 
   sysContextInit();
 
-  dispatcherInit(sysContextGetRingBuffer());
-  taskMgrInit(sysContextGetRingBuffer());
+  dispatcherInit(sysContextGetDataBuffer());
+  taskMgrInit(sysContextGetDataBuffer());
   
 
   /* USER CODE END 2 */

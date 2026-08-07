@@ -1,10 +1,10 @@
 #ifndef TASK_MGR_H
 #define TASK_MGR_H
 
-#include "ringBuffer.h"
+#include "dataBuffer.h"
 
 
-void taskMgrInit(RingBuffer_t* rBuff);
+void taskMgrInit(DataBuffer_t* dataBuffer);
 void taskMgr();
 
 

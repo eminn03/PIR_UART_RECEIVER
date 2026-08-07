@@ -6,12 +6,12 @@
 
 
 static rawData_t text;
-static RingBuffer_t* p_rBuff;
+static DataBuffer_t* p_dataBuffer;
 
 
-void dispatcherInit(RingBuffer_t* rBuff){
+void dispatcherInit(DataBuffer_t* dataBuffer){
 
-    p_rBuff = rBuff;
+    p_dataBuffer = dataBuffer;
 }
 
 
@@ -26,7 +26,6 @@ void dispatcher(){
         if(!checkData(&text))
            return;
 
-        ringBufferAppend(p_rBuff, dataProcParseData(&text));
-
+        dataBufferAppend(p_dataBuffer, dataProcParseData(&text));
     }
 }

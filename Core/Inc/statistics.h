@@ -4,8 +4,8 @@
 #include <stdint.h>
 
 
-uint32_t successiveDifference(uint16_t* data, uint16_t len);
-uint16_t mean(uint16_t* data, uint16_t len, uint16_t startIndex);
+uint32_t successiveDifference(const uint16_t* data, uint16_t len);
+uint16_t mean(const uint16_t* data, uint16_t len, uint16_t startIndex);
 
 
 #endif

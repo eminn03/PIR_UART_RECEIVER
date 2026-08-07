@@ -1,10 +1,10 @@
 #ifndef SCHEDULER_H
 #define SCHEDULER_H
 
-#include "ringBuffer.h"
+#include "dataBuffer.h"
 
 
-void dispatcherInit(RingBuffer_t* rBuff);
+void dispatcherInit(DataBuffer_t* dataBuffer);
 void dispatcher();
 
 

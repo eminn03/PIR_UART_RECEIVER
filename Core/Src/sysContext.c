@@ -1,16 +1,16 @@
 #include "../Inc/sysContext.h"
 
 
-static RingBuffer_t ringBuffer;
+static DataBuffer_t dataBuffer;
 
 
 void sysContextInit(){
 
-    ringBufferInit(&ringBuffer);
+    dataBufferInit(&dataBuffer);
 }
 
-RingBuffer_t* sysContextGetRingBuffer(){
+DataBuffer_t* sysContextGetDataBuffer(){
 
-    return &ringBuffer;
+    return &dataBuffer;
 }
 
