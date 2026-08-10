@@ -2,8 +2,10 @@
 #define UART_RX_H
 
 #include <stdbool.h>
-#include "stm32g0xx_hal.h"
 #include "../Inc/dataDefinitons.h"
+
+
+typedef struct __UART_HandleTypeDef UART_HandleTypeDef;
 
 
 void uartRxInit(UART_HandleTypeDef* huart2);

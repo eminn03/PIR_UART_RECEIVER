@@ -15,7 +15,7 @@ void dispatcherInit(DataBuffer_t* dataBuffer){
 }
 
 
-void dispatcher(){
+void dispatchRawData(){
 
     if(uartRxGetDataReady()){
 

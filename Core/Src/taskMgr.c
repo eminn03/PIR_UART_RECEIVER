@@ -15,10 +15,10 @@ void taskMgr(){
 
     if(dataBufferIsFull(p_dataBuffer)){
 
-        uint16_t data = mean(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer), 24);
+        //uint16_t data = mean(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer), 0);
         uint32_t diff = successiveDifference(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer));
 
-        if(diff > 0x222)
+        if(diff > 0x133)
             ledON();
         else
             ledOFF();
