@@ -6,7 +6,7 @@
 #include "../Inc/dataDefinitons.h"
 
 
-bool checkData(rawData_t* text);
+bool checkData(const rawData_t* text);
 
 
 #endif

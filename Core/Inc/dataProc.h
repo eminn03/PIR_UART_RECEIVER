@@ -4,7 +4,7 @@
 #include "dataDefinitons.h"
 
 
-parsedData_t dataProcParseData(rawData_t* text);
+parsedData_t dataProcParseData(const rawData_t* text);
 
 
 #endif

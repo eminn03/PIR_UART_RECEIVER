@@ -1,16 +1,20 @@
 #include "../Inc/dataCheck.h"
+#include <stddef.h>
 
 
-static uint16_t CCITT_16(uint8_t* rx_buff, uint8_t len);
+static uint16_t CCITT_16(const uint8_t* rx_buff, uint8_t len);
 
 
-bool checkData(rawData_t* text){
+bool checkData(const rawData_t* text){
+
+    if(text == NULL)
+        return false;
 
     return text->value[DATA_IDX_DEV_ADDR] == DATA_DEV_ADDR && \
                                     (((uint16_t)text->value[DATA_IDX_CRC_MS]) << 8) + (uint16_t)text->value[DATA_IDX_CRC_LS] == CCITT_16(text->value, text->len - 3);
 }
 
-static uint16_t CCITT_16(uint8_t* rx_buff, uint8_t len){
+static uint16_t CCITT_16(const uint8_t* rx_buff, uint8_t len){
 
 	uint16_t crc = 0x0000;
 

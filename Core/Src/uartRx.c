@@ -3,7 +3,8 @@
 #include <stdint.h>
 
 
-static UART_HandleTypeDef* p_huart2;
+static UART_HandleTypeDef* p_huart;
+
 static rawData_t rxData;
 
 static uint8_t rxValue;
@@ -15,17 +16,20 @@ static volatile bool dataReady;
 static void uartRxAddToBuffer(uint8_t value);
 
 
-void uartRxInit(UART_HandleTypeDef* huart2){
+void uartRxInit(UART_HandleTypeDef* huart){
 
-    p_huart2 = huart2;
+    if(huart == NULL)
+        return;
+
+    p_huart = huart;
     dataReady = false;
     rxBuffIndex = 0;
  
-    HAL_UART_ReceiverTimeout_Config(p_huart2, 30000);
-    HAL_UART_EnableReceiverTimeout(p_huart2);
-    __HAL_UART_ENABLE_IT(p_huart2, UART_IT_RTO);   
+    HAL_UART_ReceiverTimeout_Config(p_huart, 3000);
+    HAL_UART_EnableReceiverTimeout(p_huart);
+    __HAL_UART_ENABLE_IT(p_huart, UART_IT_RTO);   
 
-    HAL_UART_Receive_IT(p_huart2, &rxValue, 1);
+    HAL_UART_Receive_IT(p_huart, &rxValue, 1);
 }
 
 bool uartRxGetDataReady(){
@@ -49,17 +53,23 @@ rawData_t uartRxGetRawData(){
 
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart){
+    
+    if(huart == NULL || huart != p_huart)
+        return;
 
     uartRxAddToBuffer(rxValue);
 
-    HAL_UART_Receive_IT(p_huart2, &rxValue, 1);
+    HAL_UART_Receive_IT(huart, &rxValue, 1);
 }
 
 void uartRxTimeoutHandler(){
+
+    if(p_huart == NULL)
+        return;
         
-    if(__HAL_UART_GET_FLAG(p_huart2, UART_FLAG_RTOF)){
+    if(__HAL_UART_GET_FLAG(p_huart, UART_FLAG_RTOF)){
     
-        __HAL_UART_CLEAR_FLAG(p_huart2, UART_FLAG_RTOF);
+        __HAL_UART_CLEAR_FLAG(p_huart, UART_FLAG_RTOF);
 
         if(!dataReady)
             rxBuffIndex = 0;
@@ -68,6 +78,9 @@ void uartRxTimeoutHandler(){
 
 
 static void uartRxAddToBuffer(uint8_t value){
+
+    if(dataReady)
+        return;
 
     if(rxBuffIndex == DATA_IDX_STRT){
      

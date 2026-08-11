@@ -2,20 +2,15 @@
 #include <stddef.h>
 
 
+static void dataBufferReset(DataBuffer_t*);
+
+
 void dataBufferInit(DataBuffer_t* buff){
 
     if(buff == NULL)
         return;
 
-    buff->index = 0;
-}
-
-void dataBufferReset(DataBuffer_t* buff){
-
-    if(buff == NULL)
-        return;
-
-    buff->index = 0;
+    dataBufferReset(buff);
 }
 
 void dataBufferAppend(DataBuffer_t* buff, uint16_t data){
@@ -30,7 +25,7 @@ void dataBufferAppend(DataBuffer_t* buff, uint16_t data){
     buff->index++;
 }
 
-const uint16_t* dataBufferGetBuffer(DataBuffer_t* buff){
+const uint16_t* dataBufferGetBuffer(const DataBuffer_t* buff){
 
     if(buff == NULL)
         return 0;
@@ -38,7 +33,7 @@ const uint16_t* dataBufferGetBuffer(DataBuffer_t* buff){
     return buff->buffer;
 }
 
-uint8_t dataBufferGetIndex(DataBuffer_t* buff){
+uint8_t dataBufferGetIndex(const DataBuffer_t* buff){
 
     if(buff == NULL)
         return 0;
@@ -46,7 +41,7 @@ uint8_t dataBufferGetIndex(DataBuffer_t* buff){
     return buff->index;
 }
 
-bool dataBufferIsFull(DataBuffer_t* buff){
+bool dataBufferIsFull(const DataBuffer_t* buff){
 
     if(buff == NULL)
         return 0;
@@ -54,3 +49,8 @@ bool dataBufferIsFull(DataBuffer_t* buff){
     return buff->index == MAX_BUFFER_SIZE;
 }
 
+
+static void dataBufferReset(DataBuffer_t* buff){
+
+    buff->index = 0;
+}

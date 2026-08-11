@@ -3,13 +3,16 @@
 #include "../Inc/dataCheck.h"
 #include "../Inc/dataProc.h"
 #include "../Inc/uartRx.h"
+#include <stddef.h>
 
 
-static rawData_t text;
 static DataBuffer_t* p_dataBuffer;
 
 
 void dispatcherInit(DataBuffer_t* dataBuffer){
+
+    if(dataBuffer == NULL)
+        return;
 
     p_dataBuffer = dataBuffer;
 }
@@ -19,9 +22,9 @@ void dispatchRawData(){
 
     if(uartRxGetDataReady()){
 
-        uartRxResetDataReady();
+        rawData_t text = uartRxGetRawData();
 
-        text = uartRxGetRawData();
+        uartRxResetDataReady();
 
         if(!checkData(&text))
            return;

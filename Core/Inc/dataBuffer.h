@@ -18,11 +18,10 @@ typedef struct{
 
 
 void dataBufferInit(DataBuffer_t*);
-void dataBufferReset(DataBuffer_t*);
 void dataBufferAppend(DataBuffer_t*, uint16_t data);
-const uint16_t* dataBufferGetBuffer(DataBuffer_t*);
-uint8_t dataBufferGetIndex(DataBuffer_t*);
-bool dataBufferIsFull(DataBuffer_t*);
+const uint16_t* dataBufferGetBuffer(const DataBuffer_t*);
+uint8_t dataBufferGetIndex(const DataBuffer_t*);
+bool dataBufferIsFull(const DataBuffer_t*);
 
 
 #endif

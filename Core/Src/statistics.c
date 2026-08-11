@@ -1,10 +1,14 @@
 #include "../Inc/statistics.h"
+#include <stddef.h>
 
 
 static inline uint32_t absValue(int32_t value);
 
 
 uint16_t mean(const uint16_t *data, uint16_t len, uint16_t startIndex){
+
+    if(data == NULL)
+        return 0;
 
     uint16_t result = 0;
 
@@ -18,6 +22,9 @@ uint16_t mean(const uint16_t *data, uint16_t len, uint16_t startIndex){
 
 
 uint32_t successiveDifference(const uint16_t *data, uint16_t len){
+
+    if(data == NULL)
+        return 0;
 
     uint32_t result = 0;
 

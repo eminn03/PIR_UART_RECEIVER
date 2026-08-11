@@ -59,11 +59,9 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     Core/Src/sysmem.c
     Core/Src/syscalls.c
     Core/Src/dataCheck.c
-    Core/Src/queue.c
     Core/Src/dataProc.c
     Core/Src/sysContext.c
     Core/Src/ledHandler.c
-    Core/Src/ringBuffer.c
     Core/Src/statistics.c
     Core/Src/dataBuffer.c
     # Add user sources here
