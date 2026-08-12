@@ -6,7 +6,7 @@
 #include <stdbool.h>
 
 
-#define MAX_BUFFER_SIZE 32
+#define MAX_BUFFER_SIZE 16
 
 
 typedef struct{

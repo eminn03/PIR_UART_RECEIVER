@@ -21,16 +21,18 @@ uint16_t mean(const uint16_t *data, uint16_t len, uint16_t startIndex){
 }
 
 
-uint32_t successiveDifference(const uint16_t *data, uint16_t len){
+uint32_t filteredSuccessiveDifference(const uint16_t *data, uint16_t len, uint16_t threshold, uint8_t reductionAmount){
 
     if(data == NULL)
         return 0;
 
     uint32_t result = 0;
 
-    for(int i = 1; i < len; i++)
-        result += absValue(data[i] - data[i-1]);
+    for(int i = 1; i < len; i++){
 
+        uint32_t diff = absValue(data[i] - data[i-1]);
+        result += (diff < threshold) ? diff : (uint32_t)(threshold >> reductionAmount);
+    }
     return result;
 }
 

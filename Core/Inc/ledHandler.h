@@ -2,7 +2,6 @@
 #define LED_HANDLER_H
 
 #include <stdint.h>
-#include <stdbool.h>
 
 
 void ledON();

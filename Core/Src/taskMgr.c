@@ -4,7 +4,7 @@
 #include <stddef.h>
 
 
-const uint16_t treshold = 0x133;
+const uint16_t treshold = 0x44;
 static DataBuffer_t* p_dataBuffer;
 
 
@@ -20,8 +20,7 @@ void taskMgr(){
 
     if(dataBufferIsFull(p_dataBuffer)){
 
-        //uint16_t data = mean(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer), 0);
-        uint32_t diff = successiveDifference(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer));
+        uint32_t diff = filteredSuccessiveDifference(dataBufferGetBuffer(p_dataBuffer), dataBufferGetIndex(p_dataBuffer), 0x200, 8);
 
         if(diff > treshold)
             ledON();
